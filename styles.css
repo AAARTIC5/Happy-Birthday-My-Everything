@@ -1,0 +1,723 @@
+/* ========================================
+   Global Styles & Reset
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kalam', cursive;
+    background: linear-gradient(135deg, #ffb3d9 0%, #ffcce6 25%, #ffe6f2 50%, #ffd9ec 75%, #ffb3d9 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ========================================
+   Main Title
+   ======================================== */
+.main-title {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+    color: #ff69b4;
+    text-shadow: 3px 3px 6px rgba(255, 105, 180, 0.3);
+    margin: 30px 0;
+    padding: 20px;
+    animation: titleFloat 3s ease-in-out infinite;
+    position: relative;
+    z-index: 10;
+}
+
+@keyframes titleFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* ========================================
+   Audio Player
+   ======================================== */
+.audio-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.play-btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    transition: all 0.3s ease;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.play-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+}
+
+.play-btn.playing {
+    animation: none;
+    background: rgba(255, 182, 193, 0.95);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* ========================================
+   Container Layout
+   ======================================== */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    gap: 40px;
+    min-height: calc(100vh - 200px);
+}
+
+/* ========================================
+   Left Section: Cake
+   ======================================== */
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.cake-container {
+    margin-bottom: 40px;
+}
+
+/* Cake Animation */
+.cake {
+    position: relative;
+    width: 300px;
+    height: 280px;
+    animation: cakeBounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(139, 69, 19, 0.4));
+}
+
+@keyframes cakeBounce {
+    0%, 100% { transform: translateY(0px) rotate(-2deg); }
+    25% { transform: translateY(-15px) rotate(2deg); }
+    50% { transform: translateY(-10px) rotate(-1deg); }
+    75% { transform: translateY(-15px) rotate(1deg); }
+}
+
+/* Cake Layers */
+.cake-top {
+    width: 200px;
+    height: 60px;
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 50%, #8b4513 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cake-middle {
+    width: 240px;
+    height: 70px;
+    background: linear-gradient(135deg, #cd853f 0%, #daa520 50%, #cd853f 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cake-bottom {
+    width: 280px;
+    height: 80px;
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 50%, #8b4513 100%);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    top: 110px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Cake Frosting Drips */
+.cake-top::before,
+.cake-middle::before,
+.cake-bottom::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: #ffb6c1;
+    border-radius: 0 0 50% 50%;
+    top: 100%;
+}
+
+.cake-top::before {
+    left: 20%;
+    animation: drip1 3s ease-in-out infinite;
+}
+
+.cake-middle::before {
+    left: 60%;
+    animation: drip2 3s ease-in-out infinite 0.5s;
+}
+
+.cake-bottom::before {
+    left: 40%;
+    animation: drip3 3s ease-in-out infinite 1s;
+}
+
+@keyframes drip1 {
+    0%, 100% { height: 30px; }
+    50% { height: 45px; }
+}
+
+@keyframes drip2 {
+    0%, 100% { height: 35px; }
+    50% { height: 50px; }
+}
+
+@keyframes drip3 {
+    0%, 100% { height: 40px; }
+    50% { height: 55px; }
+}
+
+/* Cake Text */
+.cake-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #ff1493;
+    text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.5);
+    z-index: 5;
+    animation: textGlow 2s ease-in-out infinite;
+    white-space: nowrap;
+}
+
+@keyframes textGlow {
+    0%, 100% { opacity: 1; text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.5); }
+    50% { opacity: 0.9; text-shadow: 2px 2px 8px rgba(255, 20, 147, 0.8); }
+}
+
+/* Cake Decorations (Cherries) */
+.cake-decoration {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    z-index: 6;
+}
+
+.cherry {
+    position: absolute;
+    font-size: 2rem;
+    animation: cherryFloat 2s ease-in-out infinite;
+}
+
+.cherry1 {
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.cherry2 {
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0.3s;
+}
+
+.cherry3 {
+    right: 15%;
+    animation-delay: 0.6s;
+}
+
+@keyframes cherryFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Love Button */
+.love-button {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    padding: 18px 45px;
+    font-size: 1.4rem;
+    font-family: 'Kalam', cursive;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.love-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.love-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.love-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6);
+}
+
+.love-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+/* ========================================
+   Right Section: Image
+   ======================================== */
+.right-section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(255, 105, 180, 0.3);
+    background: white;
+    padding: 10px;
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.main-image:hover {
+    transform: scale(1.02);
+}
+
+/* Image Placeholder (shows when image not found) */
+.image-placeholder {
+    display: none;
+    text-align: center;
+    padding: 80px 20px;
+    color: #ff69b4;
+    font-size: 1.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+}
+
+.image-placeholder p {
+    margin: 10px 0;
+}
+
+.placeholder-hint {
+    font-size: 1rem;
+    color: #999;
+    font-style: italic;
+}
+
+/* Show placeholder if image fails to load */
+.main-image[src="placeholder-image.jpg"] + .image-placeholder,
+.main-image:not([src]) + .image-placeholder {
+    display: block;
+}
+
+/* ========================================
+   Modal (Letter Popup)
+   ======================================== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #fff5f8, #ffe6f2);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
+    position: relative;
+    animation: slideUp 0.4s ease;
+    border: 3px solid #ffb3d9;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 35px;
+    font-weight: bold;
+    color: #ff69b4;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg) scale(1.2);
+}
+
+.letter-content {
+    text-align: center;
+}
+
+.letter-content h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #ff1493;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.3);
+}
+
+.letter-text {
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1.8;
+    text-align: left;
+    padding: 0 10px;
+}
+
+.letter-text p {
+    margin-bottom: 15px;
+}
+
+.signature {
+    text-align: right;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.4rem;
+    color: #ff1493;
+    margin-top: 20px;
+}
+
+/* ========================================
+   Decorative Elements
+   ======================================== */
+.decoration {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.heart, .sparkle {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.6;
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Hearts */
+.hearts .heart:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 5s;
+}
+
+.hearts .heart:nth-child(2) {
+    top: 20%;
+    left: 80%;
+    animation-delay: 1s;
+    animation-duration: 6s;
+}
+
+.hearts .heart:nth-child(3) {
+    top: 60%;
+    left: 15%;
+    animation-delay: 2s;
+    animation-duration: 7s;
+}
+
+.hearts .heart:nth-child(4) {
+    top: 80%;
+    left: 75%;
+    animation-delay: 1.5s;
+    animation-duration: 5.5s;
+}
+
+.hearts .heart:nth-child(5) {
+    top: 40%;
+    left: 5%;
+    animation-delay: 0.5s;
+    animation-duration: 6.5s;
+}
+
+.hearts .heart:nth-child(6) {
+    top: 30%;
+    left: 90%;
+    animation-delay: 2.5s;
+    animation-duration: 5.5s;
+}
+
+/* Sparkles */
+.sparkles .sparkle:nth-child(1) {
+    top: 15%;
+    left: 25%;
+    animation-delay: 0.3s;
+    animation-duration: 4s;
+}
+
+.sparkles .sparkle:nth-child(2) {
+    top: 50%;
+    left: 60%;
+    animation-delay: 1.2s;
+    animation-duration: 5s;
+}
+
+.sparkles .sparkle:nth-child(3) {
+    top: 70%;
+    left: 30%;
+    animation-delay: 2.1s;
+    animation-duration: 4.5s;
+}
+
+.sparkles .sparkle:nth-child(4) {
+    top: 25%;
+    left: 70%;
+    animation-delay: 0.8s;
+    animation-duration: 5.5s;
+}
+
+.sparkles .sparkle:nth-child(5) {
+    top: 85%;
+    left: 50%;
+    animation-delay: 1.5s;
+    animation-duration: 4.8s;
+}
+
+.sparkles .sparkle:nth-child(6) {
+    top: 45%;
+    left: 85%;
+    animation-delay: 2.8s;
+    animation-duration: 5.2s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.4;
+    }
+    25% {
+        transform: translate(20px, -30px) rotate(5deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate(-15px, -50px) rotate(-5deg);
+        opacity: 0.9;
+    }
+    75% {
+        transform: translate(25px, -30px) rotate(3deg);
+        opacity: 0.6;
+    }
+}
+
+/* ========================================
+   Responsive Design
+   ======================================== */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .left-section {
+        min-height: auto;
+    }
+
+    .right-section {
+        width: 100%;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+        margin: 20px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+        padding: 15px 10px;
+    }
+
+    .cake {
+        width: 250px;
+        height: 230px;
+    }
+
+    .cake-top {
+        width: 160px;
+        height: 50px;
+    }
+
+    .cake-middle {
+        width: 200px;
+        height: 60px;
+        top: 40px;
+    }
+
+    .cake-bottom {
+        width: 240px;
+        height: 70px;
+        top: 90px;
+    }
+
+    .cake-text {
+        font-size: 2rem;
+    }
+
+    .love-button {
+        padding: 15px 35px;
+        font-size: 1.2rem;
+    }
+
+    .modal-content {
+        padding: 30px 20px;
+        max-width: 95%;
+    }
+
+    .letter-content h2 {
+        font-size: 2rem;
+    }
+
+    .letter-text {
+        font-size: 1rem;
+    }
+
+    .play-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+
+    .audio-player {
+        top: 10px;
+        right: 10px;
+    }
+
+    .heart, .sparkle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .cake {
+        width: 200px;
+        height: 180px;
+    }
+
+    .cake-top {
+        width: 130px;
+        height: 40px;
+    }
+
+    .cake-middle {
+        width: 160px;
+        height: 50px;
+        top: 35px;
+    }
+
+    .cake-bottom {
+        width: 190px;
+        height: 60px;
+        top: 75px;
+    }
+
+    .cake-text {
+        font-size: 1.5rem;
+    }
+
+    .love-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
+
