@@ -1,96 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy New Year to My Princess Maather</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Happy Birthday Maather ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Decorative floating elements -->
-    <div class="decoration hearts">
-        <span class="heart">💖</span>
-        <span class="heart">💕</span>
-        <span class="heart">💗</span>
-        <span class="heart">💝</span>
-        <span class="heart">💖</span>
-        <span class="heart">💕</span>
-    </div>
-    <div class="decoration sparkles">
-        <span class="sparkle">✨</span>
-        <span class="sparkle">⭐</span>
-        <span class="sparkle">✨</span>
-        <span class="sparkle">💫</span>
-        <span class="sparkle">✨</span>
-        <span class="sparkle">⭐</span>
-    </div>
+  <!-- Background music (you can replace the file path below) -->
+  <!-- CHANGE THIS: Put your own song file in the same folder and update the src -->
+  <audio id="bg-music" src="Song.mp3" autoplay loop></audio>
 
-    <!-- Main Title -->
-    <h1 class="main-title">Happy New Year to My Princess Maather</h1>
+  <!-- Floating mute / unmute button -->
+  <button id="mute-toggle" aria-label="Toggle background music">
+    🔊
+  </button>
 
-    <!-- Audio Player -->
-    <div class="audio-player">
-        <button id="playPauseBtn" class="play-btn">🎵</button>
-        <audio id="backgroundMusic" loop>
-            <!-- Replace with your audio file path -->
-            <source src="background-music.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
+  <!-- Subtle animated background (hearts will be injected by JavaScript) -->
+  <div id="heart-background"></div>
 
-    <!-- Main Content Container -->
-    <div class="container">
-        <!-- Left Side: Cake Section -->
-        <div class="left-section">
-            <div class="cake-container">
-                <div class="cake">
-                    <div class="cake-top"></div>
-                    <div class="cake-middle"></div>
-                    <div class="cake-bottom"></div>
-                    <div class="cake-decoration">
-                        <div class="cherry cherry1">🍒</div>
-                        <div class="cherry cherry2">🍒</div>
-                        <div class="cherry cherry3">🍒</div>
-                    </div>
-                    <div class="cake-text">Maather</div>
-                </div>
-            </div>
-            <button id="loveButton" class="love-button">My Love Letter for my Princess</button>
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero" id="top">
+      <div class="hero-content">
+        <h1 class="hero-title">Happy Birthday Maather ❤️</h1>
+        <p class="hero-subtitle">
+          22 January — The day the world became more beautiful
+        </p>
+        <a href="#message" class="hero-button">Scroll to your message ↓</a>
+      </div>
+    </section>
+
+    <!-- PHOTO SECTION -->
+    <section class="photo-section" id="photo">
+      <div class="photo-wrapper">
+        <!-- CHANGE THIS IMAGE SOURCE TO YOUR FAVORITE PHOTO OF MAATHER -->
+        <!-- Example: <img src="maather.jpg" alt="Beautiful Maather" /> -->
+        <img src="MMMAAATHER.jpg" alt="Beautiful Maather" />
+      </div>
+      <p class="photo-caption">
+        Every smile of yours makes the world softer, warmer, and more magical🙈🙈
+        I love You Forever🙈🙈.
+      </p>
+    </section>
+
+    <!-- PERSONAL MESSAGE SECTION (IMPORTANT) -->
+    <section class="message-section" id="message">
+      <h2 class="section-title">A message from my heart to yours</h2>
+
+      <!-- WRITE YOUR PERSONAL MESSAGE TO MAATHER HERE -->
+      <!-- 
+        HOW TO EDIT:
+        - Simply change the text inside the <p class="message-text"> ... </p>
+        - You do NOT need to touch CSS or JavaScript.
+      -->
+      <p class="message-text">
+        My Dearest Maather,
+        Happy Birthday to the love of my life 🎉🎂💖
+Today is not just your birthday, it’s a celebration of the most beautiful heart I’ve ever known 💕✨
+
+You make my world brighter every single day 🌍❣️
+Your smile fills my heart with happiness 💋🥹❤️‍🔥
+Your love gives me peace, strength, and hope ♥️💋
+
+I want you to know that my love for you is true, loyal, and forever 💍♥️🥹
+I promise to stand by your side in every moment, in happiness and in hardship, today and always 💞
+My heart is yours, now and forever 💓🔐
+
+May your life be full of joy 🎈🎊
+May your dreams come true ❤️‍🔥✨
+And may you always feel how deeply and honestly I love you 💖💐
+
+Happy Birthday, my love 🎂🎉
+You are my happiness, my home, and my forever 💘
+
+With all my love and loyalty,
+Mortada ♥️♥️.
+      </p>
+    </section>
+
+    <!-- EXTRA LITTLE WISHES SECTION (OPTIONAL & EASY TO EDIT) -->
+    <section class="wishes-section">
+      <h2 class="section-title">Little wishes for you</h2>
+      <div class="wishes-grid">
+        <div class="wish-card">
+          <span class="wish-icon">♥️</span>
+          <p class="wish-text">May your days be as soft and warm as your smile.</p>
         </div>
-
-        <!-- Right Side: Image Section -->
-        <div class="right-section">
-            <div class="image-container">
-                <!-- Replace with your image path -->
-                <img src="Mather.jpg" alt="Beautiful Moment" class="main-image" id="mainImage">
-                <div class="image-placeholder">
-                    <p>📷 Your Image Here</p>
-                    <p class="placeholder-hint">Replace 'placeholder-image.jpg' with your image path</p>
-                </div>
-            </div>
+        <div class="wish-card">
+          <span class="wish-icon">💖</span>
+          <p class="wish-text">May you always feel deeply loved, today and always By Me and everyone.</p>
         </div>
-    </div>
-
-    <!-- Letter Modal -->
-    <div id="letterModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <div class="letter-content">
-                <h2>💕 My Dearest Maather 💕</h2>
-                <div class="letter-text">
-                    <!-- EDIT THIS TEXT TO CUSTOMIZE YOUR LETTER -->
-                    <p>Since you entered my life, something inside me truly changed. My heart became softer, more honest, and filled with feelings I never knew how to express before. You made me better without even trying — simply by being you, through your presence and the quiet beauty you brought into my world. 🎉</p>
-                    <p>My Maather, since knowing you, I’ve been full of emotions that words can hardly contain. You live in my thoughts, in my prayers, and in the smallest details of my days. You gave life a different meaning, a warmer and more sincere one, and being close to you feels like peace.</p>
-                    <p>You are the most beautiful ending to this year, and the most beautiful part of it. I look forward to many years ahead with you — growing together, sharing life step by step, and supporting each other through everything that comes our way.✨</p>
-                    <p>My Maather, I am deeply grateful for your presence in my life. Thank you for every feeling you awakened in me, for every quiet smile you gave me without realizing it. You are a true blessing, and a place my heart will always choose. 💖</p>
-                    <p>With all my love,</p>
-                    <p class="signature">Your Love Mortada 💝</p>
-                </div>
-            </div>
+        <div class="wish-card">
+          <span class="wish-icon">🌹</span>
+          <p class="wish-text">May every dream in your heart gently find its way to you, and i wish you all luck and may your days be filled with love.</p>
         </div>
-    </div>
+      </div>
+    </section>
+  </main>
 
-    <script src="script.js"></script>
+  <footer class="footer">
+    <p>
+      Made with endless love for
+      <span class="footer-name">Maather</span>
+      on her birthday.
+       By Mortada Her Everything.
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
